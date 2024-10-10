@@ -6,7 +6,7 @@ import { Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 function OutputSection() {
-  const editorRef:any=useRef();
+  const editorRef: any = useRef();
   return (
     <div className="bg-white border rounded-lg">
       <div className="flex justify-between items-center p-5">
@@ -16,13 +16,14 @@ function OutputSection() {
         </Button>
       </div>
       <Editor
-      ref={editorRef}
+        ref={editorRef}
         initialValue="Your result will appear here"
-        // previewStyle="vertical"
         height="600px"
         initialEditType="wysiwyg"
         useCommandShortcut={true}
-        onChange={()=>console.log(editorRef.current.getInstance().getMarkdown())}
+        onChange={() =>
+          console.log(editorRef.current.getInstance().getMarkdown())
+        }
       />
     </div>
   );
