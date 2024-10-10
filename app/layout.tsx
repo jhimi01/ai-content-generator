@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import Navbar from "@/components/ui/navbar";
 
 const inter = Outfit({ subsets: ["latin"]})
 
@@ -22,6 +23,7 @@ export default function RootLayout({
         <body
           className={inter.className}
         >
+          {/* <Navbar /> */}
           {children}
         </body>
       </html>

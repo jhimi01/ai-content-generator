@@ -2,6 +2,7 @@
 
 import { FileClock, Home, Settings, WalletIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
@@ -10,7 +11,7 @@ function SideNav() {
     {
       name: "Home",
       icon: Home,
-      path: "/dashboard",
+      path: "/",
     },
     {
       name: "History",
@@ -43,13 +44,15 @@ function SideNav() {
       <hr className="my-6" />
       <div className="mt-3">
         {MenuList.map((menu, index) => (
+        <Link key={index} href={menu.path}>
           <div
-            key={index}
+            
             className={`flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded cursor-pointer items-center ${path==menu.path && 'bg-primary text-white'}`}
           >
             <menu.icon className="w-6 h-6" />
             <h3 className="text-lg">{menu.name}</h3>
           </div>
+        </Link>
         ))}
       </div>
     </div>
