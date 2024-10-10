@@ -32,9 +32,9 @@ function SideNav() {
 
 
   const path = usePathname();
-  useEffect(()=>{
-    console.log(path)
-  }, [])
+  // useEffect(()=>{
+  //   console.log(path)
+  // }, [])
 
   return (
     <div className="h-screen p-5 shadow-sm border">
