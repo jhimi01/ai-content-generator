@@ -19,25 +19,24 @@ function CreateContent(props: PROPS) {
   const selectedTemplate: TEMPLATE | any = Templates?.find(
     (item) => item.slug == props.params["template-slug"]
   );
-const [loading, setLoading] = useState(false);
-const [aiOutput, setAiOutput] = useState<string>('');
-  const GenerateAIContent = async(formData: any) => {
-    console.log(formData)
+  const [loading, setLoading] = useState(false);
+  const [aiOutput, setAiOutput] = useState<string>("");
+  const GenerateAIContent = async (formData: any) => {
+    console.log(formData);
 
     setLoading(true);
-    const SelectedPrompt=selectedTemplate?.aiPrompt;
+    const SelectedPrompt = selectedTemplate?.aiPrompt;
 
-    const FinalAiPrompt=JSON.stringify(formData)+", " + SelectedPrompt;
+    const FinalAiPrompt = JSON.stringify(formData) + ", " + SelectedPrompt;
 
-    const result=await chatSession.sendMessage(FinalAiPrompt)
+    const result = await chatSession.sendMessage(FinalAiPrompt);
     setAiOutput(result.response.text());
     console.log(result.response.text());
     setLoading(false);
   };
 
-
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // Safe to use navigator here
       console.log(navigator.userAgent);
     }

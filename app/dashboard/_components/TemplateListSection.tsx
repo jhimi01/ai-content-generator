@@ -39,10 +39,13 @@ function TemplateListSection({ useSearchInput }: any) {
   return (
     <div className="p-5">
       {templateList.length === 0 ? (
-        <div className="flex items-center justify-center"><h2 className="text-3xl text-gray-500 capitalize mt-10">
-            no the found</h2></div>
+        <div className="flex items-center justify-center">
+          <h2 className="text-3xl text-gray-500 capitalize mt-10">
+            no the found
+          </h2>
+        </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5 ">
           {templateList.map((item: TEMPLATE, index: number) => (
             <TemplateCard {...item} key={index} />
           ))}
