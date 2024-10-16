@@ -9,7 +9,7 @@ import { LoaderCircle } from "lucide-react";
 
 interface PROPS {
   selectedTemplate: TEMPLATE;
-  userFormInput:any;
+  userFormInput: any;
   loading: boolean;
 }
 
@@ -23,7 +23,7 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
 
   const onSubmit = (e: any) => {
     e.preventDefault();
-    userFormInput(formData)
+    userFormInput(formData);
   };
 
   return (
@@ -54,7 +54,9 @@ function FormSection({ selectedTemplate, userFormInput, loading }: PROPS) {
           </div>
         ))}
         <Button disabled={loading} type="submit" className="w-full">
-          {loading && <LoaderCircle className="animate-spin duration-400 mr-2"  />}
+          {loading && (
+            <LoaderCircle className="animate-spin duration-400 mr-2" />
+          )}
           Generate Content
         </Button>
       </form>

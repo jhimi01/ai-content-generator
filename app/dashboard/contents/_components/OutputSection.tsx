@@ -9,13 +9,13 @@ interface props {
   aiOutput: string;
 }
 
-function OutputSection({aiOutput}:props) {
+function OutputSection({ aiOutput }: props) {
   const editorRef: any = useRef();
 
-  useEffect(()=>{
-   const editorInstance =editorRef.current.getInstance()
-   editorInstance.setMarkdown(aiOutput)
-  },[aiOutput])
+  useEffect(() => {
+    const editorInstance = editorRef.current.getInstance();
+    editorInstance.setMarkdown(aiOutput);
+  }, [aiOutput]);
 
   return (
     <div className="bg-white border rounded-lg">

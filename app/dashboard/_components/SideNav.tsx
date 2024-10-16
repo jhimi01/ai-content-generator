@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import { FileClock, Home, Settings, WalletIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
+import UsageTrack from "./UsageTrack";
 
 function SideNav() {
   const MenuList = [
@@ -16,7 +17,7 @@ function SideNav() {
     {
       name: "History",
       icon: FileClock,
-      path: "/dashboard/istory",
+      path: "/dashboard/history",
     },
     {
       name: "Billing",
@@ -30,30 +31,33 @@ function SideNav() {
     },
   ];
 
-
   const path = usePathname();
   // useEffect(()=>{
   //   console.log(path)
   // }, [])
 
   return (
-    <div className="h-screen p-5 shadow-sm border">
+    <div className="h-screen relative p-5 shadow-sm border">
       <div className="flex justify-center mb-7">
         <Image src={"/logo.svg"} alt="logo" width={100} height={100} />
       </div>
       <hr className="my-6" />
       <div className="mt-3">
         {MenuList.map((menu, index) => (
-        <Link key={index} href={menu.path}>
-          <div
-            
-            className={`flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded cursor-pointer items-center ${path==menu.path && 'bg-primary text-white'}`}
-          >
-            <menu.icon className="w-6 h-6" />
-            <h3 className="text-lg">{menu.name}</h3>
-          </div>
-        </Link>
+          <Link key={index} href={menu.path}>
+            <div
+              className={`flex gap-2 mb-2 p-3 hover:bg-primary hover:text-white rounded cursor-pointer items-center ${
+                path == menu.path && "bg-primary text-white"
+              }`}
+            >
+              <menu.icon className="w-6 h-6" />
+              <h3 className="text-lg">{menu.name}</h3>
+            </div>
+          </Link>
         ))}
+      </div>
+      <div className="absolute bottom-2 left-0 w-full ">
+        <UsageTrack />
       </div>
     </div>
   );
